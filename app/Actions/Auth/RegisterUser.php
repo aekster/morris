@@ -14,6 +14,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsController;
+use Morris\Core\Rules\Rulesets\Common\StringRuleset;
 
 class RegisterUser
 {
@@ -22,11 +23,16 @@ class RegisterUser
     /**
      * @throws QueryException
      */
-    public function handle(string $email, string $password): void
+    public function handle(
+        string $email,
+        string $password,
+        string $name
+    ): void
     {
         User::create([
             "email" => $email,
             "password" => Hash::make($password),
+            "name" => $name
         ]);
     }
 
@@ -35,8 +41,9 @@ class RegisterUser
         ApiResponse $apiResponse
     ): JsonResponse {
         $this->handle(
-            $request->email,
-            $request->password,
+            $request->validated(["email"]),
+            $request->validated(["password"]),
+            $request->validated(["name"])
         );
 
         return $apiResponse
@@ -49,12 +56,20 @@ class RegisterUser
         return [
             "email" => ["required", new UniqueEmailRuleset()],
             "password" => ["required", "confirmed", new PasswordRuleset()],
+            "name" => ["required", new StringRuleset()]
         ];
     }
 
     public static function routes(Router $router): void
     {
-        //$router->post("api/register", static::class);
+        $router
+            ->post("api/register", static::class)
+            ->name("register");
+    }
+
+    public function getControllerMiddleware(): array
+    {
+        return ["api", "throttle:api"];
     }
 
 }

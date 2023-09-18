@@ -16,8 +16,7 @@ class PasswordRuleset extends FieldRuleset
                 ->letters()
                 ->mixedCase()
                 ->numbers()
-                ->symbols()
-                ->uncompromised(),
+                ->symbols(),
             "max:255",
         ];
     }
