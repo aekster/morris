@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Morris\Core\Actions\Auth;
 
 use Illuminate\Routing\Router;
+use Morris\Core\Enums\User\Role;
 use Morris\Core\Http\Responses\ApiResponse;
 use Morris\Core\Models\User;
-use Morris\Core\Rules\Rulesets\Auth\PasswordRuleset;
-use Morris\Core\Rules\Rulesets\Auth\UniqueEmailRuleset;
+use Morris\Core\Rules\Rulesets\User\ElectiveUserRoleRuleset;
+use Morris\Core\Rules\Rulesets\User\PasswordRuleset;
+use Morris\Core\Rules\Rulesets\User\UniqueEmailRuleset;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
@@ -26,13 +28,15 @@ class RegisterUser
     public function handle(
         string $email,
         string $password,
-        string $name
+        string $name,
+        Role $role
     ): void
     {
         User::create([
             "email" => $email,
             "password" => Hash::make($password),
-            "name" => $name
+            "name" => $name,
+            "role" => $role
         ]);
     }
 
@@ -43,7 +47,8 @@ class RegisterUser
         $this->handle(
             $request->validated(["email"]),
             $request->validated(["password"]),
-            $request->validated(["name"])
+            $request->validated(["name"]),
+            $request->validated(["role"])
         );
 
         return $apiResponse
@@ -56,7 +61,16 @@ class RegisterUser
         return [
             "email" => ["required", new UniqueEmailRuleset()],
             "password" => ["required", "confirmed", new PasswordRuleset()],
-            "name" => ["required", new StringRuleset()]
+            "name" => ["required", new StringRuleset()],
+            "role" => [new ElectiveUserRoleRuleset()]
+        ];
+    }
+
+    public function getValidationMessages(): array
+    {
+        return [
+            'role.required' => 'Looks like you forgot the title.',
+            'body.required' => 'Is that really all you have to say?',
         ];
     }
 

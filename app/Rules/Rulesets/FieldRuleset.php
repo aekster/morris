@@ -30,11 +30,16 @@ abstract class FieldRuleset implements ValidationRule
         ]);
 
         if (!$this->validator->passes()) {
-            $fail($this->validator->errors()->first());
+            $fail($this->message());
         }
     }
 
     abstract public function rules(): array;
+
+    public function message(): string
+    {
+        return $this->validator->errors()->first();
+    }
 
     // we will be using dot notation only for arrays
     protected function dotAsArray(string $attribute): string

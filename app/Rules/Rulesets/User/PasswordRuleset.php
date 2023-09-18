@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Morris\Core\Rules\Rulesets\Auth;
+namespace Morris\Core\Rules\Rulesets\User;
 
 use Morris\Core\Rules\Rulesets\FieldRuleset;
 use Illuminate\Validation\Rules\Password;
