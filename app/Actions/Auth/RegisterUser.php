@@ -54,7 +54,7 @@ class RegisterUser
 
     public static function routes(Router $router): void
     {
-        $router->post("api/register", static::class);
+        //$router->post("api/register", static::class);
     }
 
 }

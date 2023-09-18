@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Routing\Router;
+use Morris\Core\Actions\Auth\RegisterUser;
 use Morris\Core\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+$router = app(Router::class);
+
+$router->middleware("throttle:api")->group(
+    function (Router $router): void {
+        $router->post("/register", RegisterUser::class)
+            ->name("register");
+    },
+);
