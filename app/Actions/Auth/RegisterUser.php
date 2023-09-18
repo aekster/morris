@@ -66,14 +66,6 @@ class RegisterUser
         ];
     }
 
-    public function getValidationMessages(): array
-    {
-        return [
-            'role.required' => 'Looks like you forgot the title.',
-            'body.required' => 'Is that really all you have to say?',
-        ];
-    }
-
     public static function routes(Router $router): void
     {
         $router

@@ -1,0 +1,32 @@
+components:
+  responses:
+    APIErrorResponse:
+      description: Standardized API error response
+      content:
+        application/yml:
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                description: Empty response data
+              errors:
+                type: object
+                description: Empty validation errors data
+              message:
+                type: string
+                description: The message from the API
+                examples:
+                  - Error Message
+  headers:
+    Authorization:
+      in: header
+      name: Authorization
+      description: Authentication token for API.
+      schema:
+        type: string
+        format: string
+      examples:
+        Authorization:
+          value: Bearer 2|PKASy543hA5DkfDKAeC1Q1SIZpYa5NTUcq1e2nQU
+      required: true

@@ -1,0 +1,20 @@
+openapi: 3.0.0
+info:
+  title: Morris Core
+  version: 1.0.1
+  description:
+    "Morris API Documentation \n"
+  contact:
+    name: Kamil Stefaniak
+    email: kamil.stefaniak@lkfop.pl
+servers:
+  - url: http://localhost/api/
+    description: Development server
+tags:
+  - name: Authentication
+    description: Routes to authenticate user
+  - name: Guarded
+    description: Routes accessible only for logged users
+paths:
+  "/register":
+    "$ref": register.yml
