@@ -48,12 +48,22 @@ class RegisterUser
             $request->validated(["email"]),
             $request->validated(["password"]),
             $request->validated(["name"]),
-            $request->validated(["role"])
+            $this->determineRole($request->validated(["role"]))
         );
 
         return $apiResponse
             ->addMessage(trans("auth.user_registered"))
             ->create();
+    }
+
+    protected function determineRole(?string $roleValue): Role
+    {
+        $defaultRole = Role::Attendee;
+        if (is_null($roleValue)) {
+            return $defaultRole;
+        }
+
+        return Role::tryFrom($roleValue) ?? $defaultRole;
     }
 
     public function rules(): array
@@ -62,7 +72,7 @@ class RegisterUser
             "email" => ["required", new UniqueEmailRuleset()],
             "password" => ["required", "confirmed", new PasswordRuleset()],
             "name" => ["required", new StringRuleset()],
-            "role" => [new ElectiveUserRoleRuleset()]
+            "role" => ["nullable", new ElectiveUserRoleRuleset()]
         ];
     }
 
