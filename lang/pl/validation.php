@@ -121,6 +121,8 @@ return [
     "url" => "Format pola :attribute jest nieprawidłowy.",
     "uuid" => "Pole :attribute musi być poprawnym identyfikatorem UUID.",
     "enum" => "Pole :attribute posiada niedozwoloną wartość",
-    "custom" => [],
+    "custom" => [
+        "elective_role" => "Może wybrać tylko jedną z ról: (:roles)"
+    ],
     "attributes" => [],
 ];
