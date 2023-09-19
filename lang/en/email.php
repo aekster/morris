@@ -12,6 +12,6 @@ return [
         "ignore" => "If you did not request a password reset, no further action is required.",
     ],
     "regards" => "Regards",
-    "footer" => "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below into your web browser:",
+    "link" => "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below into your web browser:",
     "rights_reserved" => "All rights reserved.",
 ];

@@ -1,54 +1,52 @@
-@component("mail::message")
-    {{-- Greeting --}}
-    @if (! empty($greeting))
-        # {{ $greeting }}
-    @else
-        @if ($level === "error")
-            # @lang("Whoops!")
-        @else
-            # @lang("Hello!")
-        @endif
-    @endif
+<x-mail::message>
+{{-- Greeting --}}
+@if (! empty($greeting))
+# {{ $greeting }}
+@else
+@if ($level === 'error')
+# @lang('Whoops!')
+@else
+# @lang('Hello!')
+@endif
+@endif
 
-    {{-- Intro Lines --}}
-    @foreach ($introLines as $line)
-        {{ $line }}
+{{-- Intro Lines --}}
+@foreach ($introLines as $line)
+{{ $line }}
 
-    @endforeach
+@endforeach
 
-    {{-- Action Button --}}
-    @isset($actionText)
-            <?php
-            $color = match ($level) {
-                "success", "error" => $level,
-                default => "primary",
-            };
-            ?>
-        @component("mail::button", ["url" => $actionUrl, "color" => $color])
-            {{ $actionText }}
-        @endcomponent
-    @endisset
+{{-- Action Button --}}
+@isset($actionText)
+<?php
+    $color = match ($level) {
+        'success', 'error' => $level,
+        default => 'primary',
+    };
+?>
+<x-mail::button :url="$actionUrl" :color="$color">
+{{ $actionText }}
+</x-mail::button>
+@endisset
 
-    {{-- Outro Lines --}}
-    @foreach ($outroLines as $line)
-        {{ $line }}
+{{-- Outro Lines --}}
+@foreach ($outroLines as $line)
+{{ $line }}
 
-    @endforeach
+@endforeach
 
-    {{-- Salutation --}}
-    @if (! empty($salutation))
-        {{ $salutation }}
-    @else
-        @lang("email.regards"),<br>
-        {{ config("app.name") }}
-    @endif
+{{-- Salutation --}}
+@if (! empty($salutation))
+{{ $salutation }}
+@else
+@lang("email.regards"),<br>
+{{ config('app.name') }}
+@endif
 
-    {{-- Subcopy --}}
-    @isset($actionText)
-        @slot("subcopy")
-            @lang(
-                "email.footer", ["actionText" => $actionText]
-            ) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
-        @endslot
-    @endisset
-@endcomponent
+{{-- Subcopy --}}
+@isset($actionText)
+<x-slot:subcopy>
+@lang("email.link", ["actionText" => $actionText]) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
+</x-slot:subcopy>
+@endisset
+</x-mail::message>

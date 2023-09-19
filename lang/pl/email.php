@@ -14,6 +14,6 @@ return [
         "ignore" => "Jeśli nie Ty żądałeś zmiany hasła, nie klikaj w odnośnik.",
     ],
     "regards" => "Pozdrowienia",
-    "footer" => "Jeśli masz problemy z kliknięciem w przycisk \":actionText\", skopiuj i wklej następujący adres do swojej przeglądarki:",
+    "link" => "Jeśli masz problemy z kliknięciem w przycisk \":actionText\", skopiuj i wklej następujący adres do swojej przeglądarki:",
     "rights_reserved" => "Wszystkie prawa zastrzeżone.",
 ];
