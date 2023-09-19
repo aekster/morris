@@ -41,7 +41,7 @@ abstract class FieldRuleset implements ValidationRule
         return $this->validator->errors()->first();
     }
 
-    // we will be using dot notation only for arrays
+    // we will use dot notation only for arrays
     protected function dotAsArray(string $attribute): string
     {
         return str_replace(".", "\.", $attribute);

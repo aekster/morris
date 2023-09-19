@@ -18,3 +18,7 @@ tags:
 paths:
   "/register":
     "$ref": register.yml
+  "/password/reset/request":
+      "$ref": password-reset-request.yml
+  "/password/reset":
+    "$ref": password-reset.yml

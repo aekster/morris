@@ -70,7 +70,10 @@ class RegisterUser
     {
         return [
             "email" => ["required", new UniqueEmailRuleset()],
-            "password" => ["required", "confirmed", new PasswordRuleset()],
+            "password" => [
+                "required",
+                new PasswordRuleset(request()->only("password_confirmation"))
+            ],
             "name" => ["required", new StringRuleset()],
             "role" => ["nullable", new ElectiveUserRoleRuleset()]
         ];
@@ -87,5 +90,4 @@ class RegisterUser
     {
         return ["api", "throttle:api"];
     }
-
 }

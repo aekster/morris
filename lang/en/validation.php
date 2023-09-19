@@ -130,7 +130,11 @@ return [
     "url" => "The :attribute must be a valid URL.",
     "uuid" => "The :attribute must be a valid UUID.",
     "custom" => [
-        "elective_role" => "You can only choose one of roles: (:roles)"
+        "elective_role" => "You can only choose one of roles: (:roles).",
+        "password" =>
+            [
+                "confirmed" => "Password confirmation must be identical to provided password."
+            ],
     ],
     "attributes" => [],
 ];

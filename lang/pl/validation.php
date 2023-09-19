@@ -122,7 +122,10 @@ return [
     "uuid" => "Pole :attribute musi być poprawnym identyfikatorem UUID.",
     "enum" => "Pole :attribute posiada niedozwoloną wartość",
     "custom" => [
-        "elective_role" => "Może wybrać tylko jedną z ról: (:roles)"
+        "elective_role" => "Może wybrać tylko jedną z ról: (:roles).",
+        "password" => [
+            "confirmed" => "Potwierdzenie hasła musi być identyczne jak podane hasło."
+        ],
     ],
     "attributes" => [],
 ];

@@ -12,6 +12,7 @@ class PasswordRuleset extends FieldRuleset
     public function rules(): array
     {
         return [
+            "confirmed",
             Password::min(8)
                 ->letters()
                 ->mixedCase()

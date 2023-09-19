@@ -30,3 +30,36 @@ components:
         Authorization:
           value: Bearer 2|PKASy543hA5DkfDKAeC1Q1SIZpYa5NTUcq1e2nQU
       required: true
+    JsonContent:
+        in: header
+        name: Content-Type
+        description: Json content type
+        schema:
+          type: string
+          format: string
+        examples:
+          Content-Type:
+            value: application/json
+        required: true
+    JsonAccept:
+      in: header
+      name: Accept
+      description: Json accept type
+      schema:
+        type: string
+        format: string
+      examples:
+        Accept:
+          value: application/json
+      required: true
+    Language:
+      in: header
+      name: Accept-Language
+      description: Localization language
+      schema:
+        type: string
+        format: string
+      examples:
+        Authorization:
+          value: pl
+      required: true
