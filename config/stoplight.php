@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -9,7 +11,7 @@ return [
     | Customise the page title of your API documentation.
     |
     */
-    'title' => 'Morris API Documentation',
+    "title" => "Morris API Documentation",
 
     /*
     |--------------------------------------------------------------------------
@@ -19,9 +21,9 @@ return [
     | Customise the name and url of where your API documentation will respond.
     |
     */
-    'path' => [
-        'name' => env('STOPLIGHT_PATH_NAME', 'docs'),
-        'url' => env('STOPLIGHT_PATH_URL', 'api/docs'),
+    "path" => [
+        "name" => env("STOPLIGHT_PATH_NAME", "docs"),
+        "url" => env("STOPLIGHT_PATH_URL", "api/docs"),
     ],
 
     /*
@@ -32,11 +34,11 @@ return [
     | Provide a link to your local or cloud based open api specification.
     |
     */
-    'openapi' => [
-        'path' => env('STOPLIGHT_OPENAPI_PATH', 'https://api.apis.guru/v2/specs/github.com/1.1.4/openapi.yaml')
+    "openapi" => [
+        "path" => env("STOPLIGHT_OPENAPI_PATH", "https://api.apis.guru/v2/specs/github.com/1.1.4/openapi.yaml"),
     ],
 
-    'config' => [
+    "config" => [
         /*
         |--------------------------------------------------------------------------
         | Router Mode
@@ -51,7 +53,7 @@ return [
         | Memory: Keeps the history of your “URL” in memory (does not read or write to the address bar)
         |
         */
-        'router' => "hash",
+        "router" => "hash",
 
         /*
         |--------------------------------------------------------------------------
@@ -67,6 +69,6 @@ return [
         |          existing websites that have their own sidebar or other columns already.
         |
         */
-        'layout' => "sidebar",
-    ]
+        "layout" => "sidebar",
+    ],
 ];

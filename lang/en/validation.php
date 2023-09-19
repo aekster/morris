@@ -133,7 +133,7 @@ return [
         "elective_role" => "You can only choose one of roles: (:roles).",
         "password" =>
             [
-                "confirmed" => "Password confirmation must be identical to provided password."
+                "confirmed" => "Password confirmation must be identical to provided password.",
             ],
     ],
     "attributes" => [],

@@ -124,7 +124,7 @@ return [
     "custom" => [
         "elective_role" => "Może wybrać tylko jedną z ról: (:roles).",
         "password" => [
-            "confirmed" => "Potwierdzenie hasła musi być identyczne jak podane hasło."
+            "confirmed" => "Potwierdzenie hasła musi być identyczne jak podane hasło.",
         ],
     ],
     "attributes" => [],

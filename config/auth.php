@@ -1,7 +1,8 @@
 <?php
 
-return [
+declare(strict_types=1);
 
+return [
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -13,9 +14,9 @@ return [
     |
     */
 
-    'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+    "defaults" => [
+        "guard" => "web",
+        "passwords" => "users",
     ],
 
     /*
@@ -35,10 +36,10 @@ return [
     |
     */
 
-    'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
+    "guards" => [
+        "web" => [
+            "driver" => "session",
+            "provider" => "users",
         ],
     ],
 
@@ -59,10 +60,10 @@ return [
     |
     */
 
-    'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => Morris\Core\Models\User::class,
+    "providers" => [
+        "users" => [
+            "driver" => "eloquent",
+            "model" => Morris\Core\Models\User::class,
         ],
 
         // 'users' => [
@@ -90,12 +91,12 @@ return [
     |
     */
 
-    'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'table' => 'password_reset_tokens',
-            'expire' => 60,
-            'throttle' => 60,
+    "passwords" => [
+        "users" => [
+            "provider" => "users",
+            "table" => "password_reset_tokens",
+            "expire" => 60,
+            "throttle" => 60,
         ],
     ],
 
@@ -110,6 +111,5 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
-
+    "password_timeout" => 10800,
 ];

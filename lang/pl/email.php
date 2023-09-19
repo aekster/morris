@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use Getthebox\Core\Enums\Invoice\Type;
-
 return [
     "reset" => [
         "subject" => "Powiadomienie o zresetowaniu hasła",

@@ -8,7 +8,7 @@ return [
         "reset" => [
             "success" => "Hasło zostało zmienione.",
             "failed" => "Nie udało się zmienić hasła.",
-            "request" => "Wysłano e-mail z linkiem do zresetowania hasła."
+            "request" => "Wysłano e-mail z linkiem do zresetowania hasła.",
         ],
-    ]
+    ],
 ];

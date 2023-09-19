@@ -8,7 +8,7 @@ return [
         "reset" => [
             "success" => "Password was changed.",
             "failed" => "Failed to change the password.",
-            "request" => "Password reset sent to provided email."
+            "request" => "Password reset sent to provided email.",
         ],
-    ]
+    ],
 ];

@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -16,7 +17,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    "name" => env("APP_NAME", "Laravel"),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    "env" => env("APP_ENV", "production"),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +43,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', false),
+    "debug" => (bool)env("APP_DEBUG", false),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,9 +56,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    "url" => env("APP_URL", "http://localhost"),
 
-    'asset_url' => env('ASSET_URL'),
+    "asset_url" => env("ASSET_URL"),
 
     /*
     |--------------------------------------------------------------------------
@@ -70,7 +71,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    "timezone" => "UTC",
 
     /*
     |--------------------------------------------------------------------------
@@ -83,7 +84,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    "locale" => "en",
 
     /*
     |--------------------------------------------------------------------------
@@ -96,7 +97,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    "fallback_locale" => "en",
 
     /*
     |--------------------------------------------------------------------------
@@ -109,7 +110,7 @@ return [
     |
     */
 
-    'faker_locale' => 'en_US',
+    "faker_locale" => "en_US",
 
     /*
     |--------------------------------------------------------------------------
@@ -122,9 +123,9 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    "key" => env("APP_KEY"),
 
-    'cipher' => 'AES-256-CBC',
+    "cipher" => "AES-256-CBC",
 
     /*
     |--------------------------------------------------------------------------
@@ -139,8 +140,8 @@ return [
     |
     */
 
-    'maintenance' => [
-        'driver' => 'file',
+    "maintenance" => [
+        "driver" => "file",
         // 'store'  => 'redis',
     ],
 
@@ -155,7 +156,7 @@ return [
     |
     */
 
-    'providers' => ServiceProvider::defaultProviders()->merge([
+    "providers" => ServiceProvider::defaultProviders()->merge([
         /*
          * Package Service Providers...
          */
@@ -181,8 +182,7 @@ return [
     |
     */
 
-    'aliases' => Facade::defaultAliases()->merge([
+    "aliases" => Facade::defaultAliases()->merge([
         // 'Example' => Morris\Core\Facades\Example::class,
     ])->toArray(),
-
 ];
